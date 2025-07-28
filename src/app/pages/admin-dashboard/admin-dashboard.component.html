@@ -1,0 +1,133 @@
+<!-- <h2>Welcome Admin!</h2>
+<p>You can search and play music here.</p>
+<button (click)="logout()">Logout</button>
+
+
+<h2>Artist List</h2>
+
+<div *ngIf="artists.length === 0">
+  No artists added yet.
+</div>
+
+<div *ngFor="let artist of artists" class="artist-card">
+  <h3>{{ artist.name }}</h3>
+  <p>{{ artist.bio || 'No bio available.' }}</p>
+  <img *ngIf="artist.image" [src]="artist.image" alt="{{ artist.name }}" width="150">
+  <img *ngIf="!artist.image" src="assets/default-artist.jpg" alt="No Image" width="150">
+</div>
+
+<hr>
+
+<h2>Songs List</h2>
+<div *ngIf="songs.length === 0">
+    No songs added yet.
+  </div>
+  
+  <div *ngFor="let song of songs" class="artist-card">
+    <h3>{{ song.name }}</h3>
+    <h3>{{ song.artist }}</h3>
+    <h3>{{ song.genre }}</h3>
+    <h3>{{ song.album }}</h3>
+    <img *ngIf="song.coverImage" [src]="song.coverImage" alt="{{ song.name }}" width="150">
+    <img *ngIf="!song.coverImage" src="assets/default-song.jpg" alt="No Image" width="150">
+  </div>
+
+
+  <hr>
+
+<h2>Album List</h2>
+<div *ngIf="albums.length === 0">
+    No songs added yet.
+  </div>
+  
+  <div *ngFor="let album of albums" class="artist-card">
+    <h3>{{ album.id }}</h3>
+    <h3>{{ album.name }}</h3>
+    <h3>{{ album.artist }}</h3>
+    
+    <img *ngIf="album.coverImage" [src]="album.coverImage" alt="{{ album.name }}" width="150">
+    <img *ngIf="!album.coverImage" src="assets/default-song.jpg" alt="No Image" width="150">
+  </div> -->
+
+
+  <div class="admin-container">
+    <header class="admin-header">
+      <h2>Welcome Admin!</h2>
+      <p>You can search and play music here.</p>
+      <button class="logout-button" (click)="logout()">Logout</button>
+    </header>
+  
+    <!-- 🎤 Artist Section -->
+    <section>
+      <div class="section-header">
+        <h2>🎤 Artist List</h2>
+        <button class="add-btn" (click)="goToAddArtist()">+ Add Artist</button>
+      </div>
+  
+      <div *ngIf="artists.length === 0" class="empty-message">No artists added yet.</div>
+      <div class="card-grid">
+        <div *ngFor="let artist of artists" class="card">
+          <img *ngIf="artist.image" [src]="artist.image" alt="{{ artist.name }}">
+          <img *ngIf="!artist.image" src="" alt="No Image">
+          <h3>{{ artist.name }}</h3>
+          <p>{{ artist.bio || 'No bio available.' }}</p>
+          <div class="card-buttons">
+            <button class="edit-btn" (click)="editArtist(artist)">Edit</button>
+            <button class="delete-btn" (click)="deleteArtist(artist)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <hr>
+  
+    <!-- 🎵 Song Section -->
+    <section>
+      <div class="section-header">
+        <h2>🎵 Songs List</h2>
+        <button class="add-btn" (click)="goToAddSong()">+ Add Song</button>
+      </div>
+  
+      <div *ngIf="songs.length === 0" class="empty-message">No songs added yet.</div>
+      <div class="card-grid">
+        <div *ngFor="let song of songs" class="card">
+          <img *ngIf="song.coverImage" [src]="song.coverImage" alt="{{ song.name }}">
+          <img *ngIf="!song.coverImage" src="" alt="No Image">
+          <h3>{{ song.name }}</h3>
+          <p><strong>Artist:</strong> {{ song.artist }}</p>
+          <p><strong>Genre:</strong> {{ song.genre }}</p>
+          <p><strong>Album:</strong> {{ song.album }}</p>
+          <div class="card-buttons">
+            <button class="edit-btn" (click)="editSong(song)">Edit</button>
+            <button class="delete-btn" (click)="deleteSong(song)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <hr>
+  
+    <!-- 💿 Album Section -->
+    <section>
+      <div class="section-header">
+        <h2>💿 Album List</h2>
+        <button class="add-btn" (click)="goToAddAlbum()">+ Add Album</button>
+      </div>
+  
+      <div *ngIf="albums.length === 0" class="empty-message">No albums added yet.</div>
+      <div class="card-grid">
+        <div *ngFor="let album of albums" class="card">
+          <img *ngIf="album.coverImage" [src]="album.coverImage" alt="{{ album.name }}">
+          <img *ngIf="!album.coverImage" src="" alt="No Image">
+          <h3>{{ album.name }}</h3>
+          <p><strong>Artist:</strong> {{ album.artist }}</p>
+          <div class="card-buttons">
+            <button class="edit-btn" (click)="editAlbum(album)">Edit</button>
+            <button class="delete-btn" (click)="deleteAlbum(album)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  

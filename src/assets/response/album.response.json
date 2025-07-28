@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "Parachutes",
+      "artist": "Coldplay",
+      "coverImage": ""
+    },
+    {
+      "id": 2,
+      "name": "Oral Fixation Vol. 2",
+      "artist": "Shakira",
+      "coverImage": ""
+    },
+    {
+      "id": 3,
+      "name": "Divide",
+      "artist": "Ed Sheeran",
+      "coverImage": ""
+    },
+    {
+      "id": 4,
+      "name": "8 Mile",
+      "artist": "Eminem",
+      "coverImage": ""
+    },
+    {
+      "id": 5,
+      "name": "Cigarettes After Sex",
+      "artist": "Cigarettes After Sex",
+      "coverImage": ""
+    }
+  ]
+  

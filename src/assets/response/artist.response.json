@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "Cigarettes After Sex",
+      "bio": "An ambient pop band known for their dreamy sound and emotional lyrics.",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "name": "Shakira",
+      "bio": "A Colombian singer, songwriter, and dancer known for her distinctive voice and global hits.",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "Ed Sheeran",
+      "bio": "An English singer-songwriter famous for his acoustic ballads and chart-topping hits.",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "name": "Eminem",
+      "bio": "An American rapper, songwriter, and record producer known for his rapid-fire lyrics and storytelling.",
+      "image": ""
+    },
+    {
+      "id": 5,
+      "name": "Coldplay",
+      "bio": "A British rock band known for their melodic music and emotional depth.",
+      "image": ""
+    }
+  ]
+  
