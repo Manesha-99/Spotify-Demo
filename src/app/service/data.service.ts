@@ -4,9 +4,11 @@ import { Artist } from '../models/artist.models';
 import { Album } from '../models/album.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ISongResponse } from '../models/song.response.model';
-import { IAlbumResponse } from '../models/album.response.model';
-import { IArtistResponse } from '../models/artist.response.model';
+import { SongResponse } from '../models/song.response.model';
+import { AlbumResponse } from '../models/album.response.model';
+import { ArtistResponse } from '../models/artist.response.model';
+import { playListSongs } from '../models/playlist.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -165,16 +167,21 @@ export class DataService {
 
 //---------------------Updated to retrieve from JSON-----------------------------
 
-getSongs(): Observable<ISongResponse[]>{
-  return this.http.get<ISongResponse[]>('assets/response/song.response.json');
+getSongs(): Observable<SongResponse[]>{
+  return this.http.get<SongResponse[]>('assets/response/song.response.json');
 }
 
-getArtists(): Observable<IArtistResponse[]>{
-  return this.http.get<IArtistResponse[]>('assets/response/artist.response.json');
+getArtists(): Observable<ArtistResponse[]>{
+  return this.http.get<ArtistResponse[]>('assets/response/artist.response.json');
 }
 
-getAlbums(): Observable<IAlbumResponse[]>{
-  return this.http.get<IAlbumResponse[]>('assets/response/album.response.json');
+getAlbums(): Observable<AlbumResponse[]>{
+  return this.http.get<AlbumResponse[]>('assets/response/album.response.json');
+}
+
+
+getPlayList(): Observable<playListSongs[]>{
+  return this.http.get<playListSongs[]>('assets/response/playList.response.json');
 }
 
 

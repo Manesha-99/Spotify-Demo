@@ -1,4 +1,4 @@
-export interface ISongResponse{
+export interface SongResponse{
     id: number,
     name: string,
     artist: string,

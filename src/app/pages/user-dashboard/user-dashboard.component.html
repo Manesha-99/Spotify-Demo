@@ -1,3 +1,130 @@
 <h2>Welcome User!</h2>
 <p>You can search and play music here.</p>
 <button (click)="logout()">Logout</button>
+
+
+<!----------PlayList Section---------->
+
+<!-- <h2>PlayList</h2>
+<div class="" *ngIf="playLists.length===0">No Songs In Playlist</div>
+<div class="" *ngFor="let playlist of playLists">
+  <div class="" >{{playlist.Name}}
+    <button (click)="ShowSongs()">Show Songs</button>
+    <div class="" *ngIf="(ShowSongs)">{{playlist.songs}}</div>
+    <button (click)="removeSong()">Remove Song</button>
+  </div>
+</div>
+<button (click)="savePlayList()">Save PlayList</button>
+<button (click)="deletePlayList()">Delete PlayList</button> -->
+
+<!-- <h2>Playlists</h2>
+
+<div *ngIf="playLists.length === 0">
+  No playlists available.
+</div>
+
+<div *ngFor="let playlist of playLists; let i = index" class="playlist-card">
+  <h3>{{ playlist.Name }}</h3>
+
+  <button (click)="toggleSongs(i)">
+    {{ shownPlaylistIndex === i ? 'Hide Songs' : 'Show Songs' }}
+  </button>
+
+  <div *ngIf="shownPlaylistIndex === i" class="song-list">
+    <ul>
+      <li *ngFor="let song of playlist.songs; let j = index">
+        {{ song.songName }} - {{ song.songArtist }}
+        <button (click)="removeSong(i, j)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <button (click)="deletePlayList(i)">Delete Playlist</button>
+</div>
+
+<button (click)="savePlayLists()">Save All Playlists</button> -->
+
+
+<!-- Simple One -->
+
+<h2>My Playlist</h2>
+
+<div *ngIf="playListSongs.length === 0">
+  No songs in playlist.
+</div>
+<ul>
+  <li *ngFor="let song of playListSongs; let i = index">
+    {{ song.songName }} - {{ song.songArtist }}
+    <button (click)="removeSong(i)">Remove</button>
+  </li>
+</ul>
+<button (click)="savePlaylist()">Save Playlist</button>
+
+
+
+
+
+<!-- 🎤 Artist Section -->
+<section>
+    <div class="section-header">
+        <h2> 🎤 Artist List</h2>>
+      </div>
+    
+    <div *ngIf="artists.length === 0" class="empty-message">No artists added yet.</div>
+    <div class="card-grid">
+      <div *ngFor="let artist of artists" class="card">
+        <img *ngIf="artist.image" [src]="artist.image" alt="{{ artist.name }}">
+        <img *ngIf="!artist.image" src="" alt="No Image">
+        <h3>{{ artist.name }}</h3>
+        <p>{{ artist.bio || 'No bio available.' }}</p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- 🎵 Song Section -->
+  <section>
+    <div class="section-header">
+      <h2>🎵 Songs List</h2>>
+    </div>
+
+    <div *ngIf="songs.length === 0" class="empty-message">No songs added yet.</div>
+    <div class="card-grid">
+      <div *ngFor="let song of songs" class="card">
+        <img *ngIf="song.coverImage" [src]="song.coverImage" alt="{{ song.name }}">
+        <img *ngIf="!song.coverImage" src="" alt="No Image">
+        <h3>{{ song.name }}</h3>
+        <p><strong>Artist:</strong> {{ song.artist }}</p>
+        <p><strong>Genre:</strong> {{ song.genre }}</p>
+        <p><strong>Album:</strong> {{ song.album }}</p>
+        <button (click)="addToPlayList(song)">Add To Playlist</button>
+      
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- 💿 Album Section -->
+  <section>
+    <div class="section-header">
+      <h2>💿 Album List</h2>
+    </div>
+
+    <div *ngIf="albums.length === 0" class="empty-message">No albums added yet.</div>
+    <div class="card-grid">
+      <div *ngFor="let album of albums" class="card">
+        <img *ngIf="album.coverImage" [src]="album.coverImage" alt="{{ album.name }}">
+        <img *ngIf="!album.coverImage" src="" alt="No Image">
+        <h3>{{ album.name }}</h3>
+        <p><strong>Artist:</strong> {{ album.artist }}</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!---------PlayList Section----------->
+
+

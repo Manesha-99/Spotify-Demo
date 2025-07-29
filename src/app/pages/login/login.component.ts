@@ -20,9 +20,11 @@ export class LoginComponent {
     if (success) {
       const role = this.auth.getRole();
       this.router.navigate([role === 'admin' ? '/admin-dashboard' : '/user-dashboard']);
-      alert("Login Successfully....");
+      // alert("Login Successfully....");
     } else {
       alert('Invalid credentials!');
     }
+
+    
 }
 }

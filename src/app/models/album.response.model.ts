@@ -1,4 +1,4 @@
-export interface IAlbumResponse{
+export interface AlbumResponse{
     id: number,
     name: string,
     artist: string,
