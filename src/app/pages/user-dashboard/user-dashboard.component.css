@@ -1,0 +1,155 @@
+/* Main layout container */
+body, :host {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Welcome text and logout */
+h2 {
+  margin-bottom: 5px;
+}
+button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #0d47a1;
+}
+
+/* Header section (Welcome + Playlist) */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  flex: 1;
+}
+
+/* Playlist box fixed to top-right */
+h2 + p + button + h2 {
+  display: none; /* Hides the second <h2> before playlist, handled below */
+}
+.playlist-box {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 250px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.playlist-box h2 {
+  margin-top: 0;
+}
+.playlist-box ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.playlist-box li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.playlist-box button {
+  margin-left: 10px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #b41ff4f0;
+}
+.playlist-box button:hover {
+  background-color: #8d08c2;
+}
+.playlist-box + button {
+  margin-top: 10px;
+}
+
+#save-btn{
+  background-color: #22d10a;
+}
+
+#save-btn:hover{
+  background-color: #14a102;
+}
+
+#delete-btn{
+  background-color: #ed1f1f;
+}
+
+#delete-btn:hover{
+  background-color: #c31515;
+}
+
+/* Section headers */
+.section-header {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.section-header h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* Empty message */
+.empty-message {
+  font-style: italic;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+/* Grid layout for cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.card h3 {
+  margin: 10px 0 5px;
+}
+.card p {
+  font-size: 14px;
+  color: #444;
+}
+.card button {
+  margin-top: 8px;
+  background-color: #43a047;
+}
+.card button:hover {
+  background-color: #2e7d32;
+}

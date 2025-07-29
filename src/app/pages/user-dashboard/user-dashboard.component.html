@@ -46,8 +46,8 @@
 
 
 <!-- Simple One -->
-
-<h2>My Playlist</h2>
+ 
+<!-- <h2>My Playlist</h2>
 
 <div *ngIf="playListSongs.length === 0">
   No songs in playlist.
@@ -58,23 +58,36 @@
     <button (click)="removeSong(i)">Remove</button>
   </li>
 </ul>
-<button (click)="savePlaylist()">Save Playlist</button>
+<button (click)="savePlaylist()">Save Playlist</button>  -->
 
 
-
+<div class="playlist-box">
+  <h2>My Playlist</h2>
+  <div *ngIf="playListSongs.length === 0">
+    No songs in playlist.
+  </div>
+  <ul>
+    <li *ngFor="let song of playListSongs; let i = index">
+      {{ song.songName }} - {{ song.songArtist }}
+      <button (click)="removeSong(i)">Remove</button>
+    </li>
+  </ul>
+  <button id="save-btn" (click)="savePlaylist()">Save Playlist</button>
+  <button id="delete-btn" (click)="deletePlayList()">Delete Playlist</button>
+</div>
 
 
 <!-- 🎤 Artist Section -->
 <section>
     <div class="section-header">
-        <h2> 🎤 Artist List</h2>>
+        <h2> 🎤 Artist List</h2>
       </div>
     
     <div *ngIf="artists.length === 0" class="empty-message">No artists added yet.</div>
     <div class="card-grid">
       <div *ngFor="let artist of artists" class="card">
         <img *ngIf="artist.image" [src]="artist.image" alt="{{ artist.name }}">
-        <img *ngIf="!artist.image" src="" alt="No Image">
+        <!-- <img *ngIf="!artist.image" src="" alt="No Image"> -->
         <h3>{{ artist.name }}</h3>
         <p>{{ artist.bio || 'No bio available.' }}</p>
       </div>
@@ -86,14 +99,14 @@
   <!-- 🎵 Song Section -->
   <section>
     <div class="section-header">
-      <h2>🎵 Songs List</h2>>
+      <h2>🎵 Songs List</h2>
     </div>
 
     <div *ngIf="songs.length === 0" class="empty-message">No songs added yet.</div>
     <div class="card-grid">
       <div *ngFor="let song of songs" class="card">
         <img *ngIf="song.coverImage" [src]="song.coverImage" alt="{{ song.name }}">
-        <img *ngIf="!song.coverImage" src="" alt="No Image">
+        <!-- <img *ngIf="!song.coverImage" src="" alt="No Image"> -->
         <h3>{{ song.name }}</h3>
         <p><strong>Artist:</strong> {{ song.artist }}</p>
         <p><strong>Genre:</strong> {{ song.genre }}</p>
@@ -115,8 +128,8 @@
     <div *ngIf="albums.length === 0" class="empty-message">No albums added yet.</div>
     <div class="card-grid">
       <div *ngFor="let album of albums" class="card">
-        <img *ngIf="album.coverImage" [src]="album.coverImage" alt="{{ album.name }}">
-        <img *ngIf="!album.coverImage" src="" alt="No Image">
+        <!-- <img *ngIf="album.coverImage" [src]="album.coverImage" alt="{{ album.name }}">
+        <img *ngIf="!album.coverImage" src="" alt="No Image"> -->
         <h3>{{ album.name }}</h3>
         <p><strong>Artist:</strong> {{ album.artist }}</p>
       </div>
@@ -125,6 +138,6 @@
 
 
 
-  <!---------PlayList Section----------->
 
-
+  
+  

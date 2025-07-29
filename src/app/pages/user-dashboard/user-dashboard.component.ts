@@ -23,54 +23,49 @@ export class UserDashboardComponent implements OnInit {
   albums: Album[] = [];
   playListSongs: playListSongs[] = [];
 
-  shownPlaylistIndex: number| null = null;
+  shownPlaylistIndex: number | null = null;
 
   ngOnInit(): void {
     this.dataService.getSongs().subscribe((data) => (this.songs = data));
     this.dataService.getArtists().subscribe((data) => (this.artists = data));
     this.dataService.getAlbums().subscribe((data) => (this.albums = data));
-    this.dataService.getPlayList().subscribe((data)=> (this.playListSongs= data));
-
+    this.dataService
+      .getPlayList()
+      .subscribe((data) => (this.playListSongs = data));
   }
-
 
   logout() {
     this.auth.logout();
   }
 
-
-
-
-  removeSong(i:number){
+  removeSong(i: number) {
     this.playListSongs.splice(i);
   }
 
-
-  addToPlayList(song: SongResponse){
+  addToPlayList(song: SongResponse) {
     const entrySong: playListSongs = {
-      id : song.id,
+      id: song.id,
       songName: song.name,
-      songArtist: song.artist
-    }
+      songArtist: song.artist,
+    };
 
-    const alreadyAdded = this.playListSongs.some(x=>x.id===song.id)
-    if(!alreadyAdded){
+    const alreadyAdded = this.playListSongs.some((x) => x.id === song.id);
+    if (!alreadyAdded) {
       this.playListSongs.push(entrySong);
       alert(`Song has been added to the playList....`);
-    }else{
-    alert('Song has already added to the playList....');
+    } else {
+      alert('Song has already added to the playList....');
     }
   }
 
-  savePlaylist(){
+  savePlaylist() {
     localStorage.setItem('MyPlayList', JSON.stringify(this.playListSongs));
     alert('MyPlayList has been saved....');
   }
 
-  deletePlayList(i: number){
+  deletePlayList() {
     this.playListSongs = [];
     localStorage.removeItem('MyPlayList');
     alert('Playlist has been deleted....');
   }
 }
-
