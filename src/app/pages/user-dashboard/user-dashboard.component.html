@@ -68,7 +68,7 @@
   </div>
   <ul>
     <li *ngFor="let song of playListSongs; let i = index">
-      {{ song.songName }} - {{ song.songArtist }}
+     {{song.id}} - {{ song.songName }} - {{ song.songArtist }}
       <button (click)="removeSong(i)">Remove</button>
     </li>
   </ul>
@@ -80,7 +80,7 @@
 <!-- 🎤 Artist Section -->
 <section>
     <div class="section-header">
-        <h2> 🎤 Artist List</h2>
+        <h2> 🎤 Artists List</h2>
       </div>
     
     <div *ngIf="artists.length === 0" class="empty-message">No artists added yet.</div>
@@ -122,7 +122,7 @@
   <!-- 💿 Album Section -->
   <section>
     <div class="section-header">
-      <h2>💿 Album List</h2>
+      <h2>💿 Albums List</h2>
     </div>
 
     <div *ngIf="albums.length === 0" class="empty-message">No albums added yet.</div>

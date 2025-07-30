@@ -39,7 +39,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   removeSong(i: number) {
-    this.playListSongs.splice(i);
+    this.playListSongs.splice(i, 1);
   }
 
   addToPlayList(song: SongResponse) {

@@ -185,8 +185,8 @@ getPlayList(): Observable<playListSongs[]>{
 }
 
 
-addArtists(){
+// addArtists(){
   
-}
+// }
 
 }
