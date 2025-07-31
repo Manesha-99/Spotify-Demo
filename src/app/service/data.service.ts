@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { SongResponse } from '../models/song.response.model';
 import { AlbumResponse } from '../models/album.response.model';
 import { ArtistResponse } from '../models/artist.response.model';
-import { playListSongs } from '../models/playlist.model';
+import { playListSong } from '../models/playListSong.model';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -177,8 +177,8 @@ export class DataService {
     );
   }
 
-  getPlayList(): Observable<playListSongs[]> {
-    return this.http.get<playListSongs[]>(
+  getPlayList(): Observable<playListSong[]> {
+    return this.http.get<playListSong[]>(
       'assets/response/playList.response.json'
     );
   }

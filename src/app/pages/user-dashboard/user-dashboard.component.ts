@@ -6,66 +6,38 @@ import { Album } from '../../models/album.model';
 import { DataService } from '../../service/data.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
-import { SongResponse } from '../../models/song.response.model';
-import { playListSongs } from '../../models/playlist.model';
+import { playListSong } from '../../models/playListSong.model';
+import { PlayListComponent } from '../play-list/play-list.component';
 
 @Component({
   selector: 'app-user-dashboard',
-  imports: [FormsModule, NgIf, NgFor],
+  imports: [FormsModule, NgIf, NgFor, PlayListComponent],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
 export class UserDashboardComponent implements OnInit {
   constructor(private auth: AuthService, private dataService: DataService) {}
 
+  currentUser: any = null;
   artists: Artist[] = [];
   songs: Song[] = [];
   albums: Album[] = [];
-  playListSongs: playListSongs[] = [];
-
-  shownPlaylistIndex: number | null = null;
+  playListSongs: playListSong[] = [];
 
   ngOnInit(): void {
-    this.dataService.getSongs().subscribe((data) => (this.songs = data.songList));
+    this.dataService
+      .getSongs()
+      .subscribe((data) => (this.songs = data.songList));
     this.dataService.getArtists().subscribe((data) => (this.artists = data));
     this.dataService.getAlbums().subscribe((data) => (this.albums = data));
-    this.dataService
-      .getPlayList()
-      .subscribe((data) => (this.playListSongs = data));
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user_t = JSON.parse(storedUser);
+      this.currentUser = user_t;
+    }
   }
 
   logout() {
     this.auth.logout();
-  }
-
-  removeSong(i: number) {
-    this.playListSongs.splice(i, 1);
-  }
-
-  addToPlayList(song: Song) {
-    const entrySong: playListSongs = {
-      id: song.id,
-      songName: song.name,
-      songArtist: song.artist,
-    };
-
-    const alreadyAdded = this.playListSongs.some((x) => x.id === song.id);
-    if (!alreadyAdded) {
-      this.playListSongs.push(entrySong);
-      alert(`Song has been added to the playList....`);
-    } else {
-      alert('Song has already added to the playList....');
-    }
-  }
-
-  savePlaylist() {
-    localStorage.setItem('MyPlayList', JSON.stringify(this.playListSongs));
-    alert('MyPlayList has been saved....');
-  }
-
-  deletePlayList() {
-    this.playListSongs = [];
-    localStorage.removeItem('MyPlayList');
-    alert('Playlist has been deleted....');
   }
 }

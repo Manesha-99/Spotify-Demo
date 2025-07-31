@@ -1,0 +1,14 @@
+<div class="playlist-box">
+    <h2>My Playlist</h2>
+    <div *ngIf="playListSongs.length === 0">
+      No songs in playlist.
+    </div>
+    <ul>
+      <li *ngFor="let song of playListSongs; let i = index">
+       {{song.id}} - {{ song.songName }} - {{ song.songArtist }}
+        <button (click)="removeSong(i)">Remove</button>
+      </li>
+    </ul>
+    <button id="save-btn" (click)="savePlayList()">Save Playlist</button>
+    <button id="delete-btn" (click)="deletePlayList()">Delete Playlist</button>
+  </div>

@@ -1,80 +1,9 @@
-<h2>Welcome User!</h2>
+<h2>Welcome {{currentUser.username}}</h2>
 <p>You can search and play music here.</p>
 <button (click)="logout()">Logout</button>
 
 
-<!----------PlayList Section---------->
-
-<!-- <h2>PlayList</h2>
-<div class="" *ngIf="playLists.length===0">No Songs In Playlist</div>
-<div class="" *ngFor="let playlist of playLists">
-  <div class="" >{{playlist.Name}}
-    <button (click)="ShowSongs()">Show Songs</button>
-    <div class="" *ngIf="(ShowSongs)">{{playlist.songs}}</div>
-    <button (click)="removeSong()">Remove Song</button>
-  </div>
-</div>
-<button (click)="savePlayList()">Save PlayList</button>
-<button (click)="deletePlayList()">Delete PlayList</button> -->
-
-<!-- <h2>Playlists</h2>
-
-<div *ngIf="playLists.length === 0">
-  No playlists available.
-</div>
-
-<div *ngFor="let playlist of playLists; let i = index" class="playlist-card">
-  <h3>{{ playlist.Name }}</h3>
-
-  <button (click)="toggleSongs(i)">
-    {{ shownPlaylistIndex === i ? 'Hide Songs' : 'Show Songs' }}
-  </button>
-
-  <div *ngIf="shownPlaylistIndex === i" class="song-list">
-    <ul>
-      <li *ngFor="let song of playlist.songs; let j = index">
-        {{ song.songName }} - {{ song.songArtist }}
-        <button (click)="removeSong(i, j)">Remove</button>
-      </li>
-    </ul>
-  </div>
-
-  <button (click)="deletePlayList(i)">Delete Playlist</button>
-</div>
-
-<button (click)="savePlayLists()">Save All Playlists</button> -->
-
-
-<!-- Simple One -->
- 
-<!-- <h2>My Playlist</h2>
-
-<div *ngIf="playListSongs.length === 0">
-  No songs in playlist.
-</div>
-<ul>
-  <li *ngFor="let song of playListSongs; let i = index">
-    {{ song.songName }} - {{ song.songArtist }}
-    <button (click)="removeSong(i)">Remove</button>
-  </li>
-</ul>
-<button (click)="savePlaylist()">Save Playlist</button>  -->
-
-
-<div class="playlist-box">
-  <h2>My Playlist</h2>
-  <div *ngIf="playListSongs.length === 0">
-    No songs in playlist.
-  </div>
-  <ul>
-    <li *ngFor="let song of playListSongs; let i = index">
-     {{song.id}} - {{ song.songName }} - {{ song.songArtist }}
-      <button (click)="removeSong(i)">Remove</button>
-    </li>
-  </ul>
-  <button id="save-btn" (click)="savePlaylist()">Save Playlist</button>
-  <button id="delete-btn" (click)="deletePlayList()">Delete Playlist</button>
-</div>
+<app-play-list #playlistComp></app-play-list>
 
 
 <!-- 🎤 Artist Section -->
@@ -111,7 +40,7 @@
         <p><strong>Artist:</strong> {{ song.artist }}</p>
         <p><strong>Genre:</strong> {{ song.genre }}</p>
         <p><strong>Album:</strong> {{ song.album }}</p>
-        <button (click)="addToPlayList(song)">Add To Playlist</button>
+        <button (click)="playlistComp.addToPlayList(song)">Add To Playlist</button>
       
       </div>
     </div>

@@ -37,63 +37,6 @@ button:hover {
   flex: 1;
 }
 
-/* Playlist box fixed to top-right */
-h2 + p + button + h2 {
-  display: none; /* Hides the second <h2> before playlist, handled below */
-}
-.playlist-box {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 250px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-.playlist-box h2 {
-  margin-top: 0;
-}
-.playlist-box ul {
-  list-style: none;
-  padding: 0;
-  max-height: 200px;
-  overflow-y: auto;
-}
-.playlist-box li {
-  padding: 5px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-}
-.playlist-box button {
-  margin-left: 10px;
-  padding: 4px 8px;
-  font-size: 12px;
-  background-color: #b41ff4f0;
-}
-.playlist-box button:hover {
-  background-color: #8d08c2;
-}
-.playlist-box + button {
-  margin-top: 10px;
-}
-
-#save-btn{
-  background-color: #22d10a;
-}
-
-#save-btn:hover{
-  background-color: #14a102;
-}
-
-#delete-btn{
-  background-color: #ed1f1f;
-}
-
-#delete-btn:hover{
-  background-color: #c31515;
-}
 
 /* Section headers */
 .section-header {
