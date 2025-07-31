@@ -30,7 +30,8 @@ export class AdminDashboardComponent {
   }
 
   ngOnInit(): void {
-    this.dataService.getSongs().subscribe(data=>this.songs=data);
+    this.dataService.getSongs().subscribe(data=>this.songs=data.songList);
+
     this.dataService.getArtists().subscribe(data=>this.artists=data);
     this.dataService.getAlbums().subscribe(data=>this.albums=data);
   }

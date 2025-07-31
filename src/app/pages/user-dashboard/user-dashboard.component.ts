@@ -26,7 +26,7 @@ export class UserDashboardComponent implements OnInit {
   shownPlaylistIndex: number | null = null;
 
   ngOnInit(): void {
-    this.dataService.getSongs().subscribe((data) => (this.songs = data));
+    this.dataService.getSongs().subscribe((data) => (this.songs = data.songList));
     this.dataService.getArtists().subscribe((data) => (this.artists = data));
     this.dataService.getAlbums().subscribe((data) => (this.albums = data));
     this.dataService
@@ -42,7 +42,7 @@ export class UserDashboardComponent implements OnInit {
     this.playListSongs.splice(i, 1);
   }
 
-  addToPlayList(song: SongResponse) {
+  addToPlayList(song: Song) {
     const entrySong: playListSongs = {
       id: song.id,
       songName: song.name,

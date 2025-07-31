@@ -5,8 +5,21 @@
   <button type="submit">Login</button>
 </form> -->
 
+<!-- Spinner -->
+<div *ngIf="isLoadingUsers" class="spinner-container">
+  <div class="spinner"></div>
+  <p>Please wait...</p>
+</div>
+
+<!-- Spinner during login (after form submit) -->
+<div *ngIf="isLoggingIn" class="spinner-container">
+  <div class="spinner"></div>
+  <p>Logging in...</p>
+</div>
+
+
 <h2 id="heading">Login</h2>
-<form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+<form (ngSubmit)="onLogin()" #loginForm="ngForm" *ngIf="!isLoadingUsers"  class="login-form">
   <input
     type="text"
     name="username"
@@ -25,3 +38,4 @@
   />
   <button type="submit" [disabled]="loginForm.invalid">Login</button>
 </form>
+
