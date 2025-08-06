@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, Input, input, OnInit, SimpleChanges } from '@angular/core';
 import { playListSong } from '../../models/playListSong.model';
 import { DataService } from '../../service/data.service';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { Song } from '../../models/song.model';
 })
 export class PlayListComponent implements OnInit {
   playListSongs: playListSong[] = [];
+  @Input() songFromParent: Song | null = null;
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -24,6 +25,12 @@ export class PlayListComponent implements OnInit {
       this.dataService
         .getPlayList()
         .subscribe((data) => (this.playListSongs = data));
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes[`songFromParent`] && this.songFromParent) {
+      this.addToPlayList(this.songFromParent);
     }
   }
 

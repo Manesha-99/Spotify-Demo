@@ -1,0 +1,7 @@
+<p>parent works!</p>
+
+<app-child [message]="parentMessage" (cToP)="recieveMessage($event)" [number_c]="number" [dial_c]="dial" 
+(beenu)="recieveMessage2($event)"></app-child>
+
+<h2>{{fromChild}}</h2>
+<h2>{{fromchild2}}</h2>

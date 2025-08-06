@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { Artist } from '../../models/artist.models';
 import { Song } from '../../models/song.model';
@@ -23,6 +23,9 @@ export class UserDashboardComponent implements OnInit {
   songs: Song[] = [];
   albums: Album[] = [];
   playListSongs: playListSong[] = [];
+  selectedSong: Song| null = null;
+
+  // @ViewChild (PlayListComponent) playlistcomp !: PlayListComponent 
 
   ngOnInit(): void {
     this.dataService
@@ -36,6 +39,14 @@ export class UserDashboardComponent implements OnInit {
       this.currentUser = user_t;
     }
   }
+
+  songSelect(song:Song){
+    this.selectedSong = song;
+  }
+
+  // songSelect(song:Song){
+  //   this.playlistcomp.addToPlayList(song);
+  // }
 
   logout() {
     this.auth.logout();

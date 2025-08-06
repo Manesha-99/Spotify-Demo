@@ -3,7 +3,9 @@
 <button (click)="logout()">Logout</button>
 
 
-<app-play-list #playlistComp></app-play-list>
+<app-play-list [songFromParent]="selectedSong"></app-play-list>
+<!-- <app-play-list ></app-play-list> -->
+
 
 
 <!-- 🎤 Artist Section -->
@@ -40,7 +42,7 @@
         <p><strong>Artist:</strong> {{ song.artist }}</p>
         <p><strong>Genre:</strong> {{ song.genre }}</p>
         <p><strong>Album:</strong> {{ song.album }}</p>
-        <button (click)="playlistComp.addToPlayList(song)">Add To Playlist</button>
+        <button (click)="songSelect(song)">Add To Playlist</button>
       
       </div>
     </div>
