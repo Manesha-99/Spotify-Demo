@@ -1,14 +1,19 @@
 <p>player works!</p>
 
-<h2 *ngIf="(now_playSong)">{{now_playSong.name}}</h2>
+<h2 *ngIf="(now_playSong())">{{now_playSong()?.name}}</h2>
 
 
 <div class="player-container"> 
     <!-- Song Info -->
-    <div class="song-info">
-      <div class="song-name" >{{ now_playSong?.name || 'No song selected' }}</div>
-      <div class="song-artist">{{ now_playSong?.artist || '' }}</div>
+    <div class="song-info" >
+      <div class="song-name" >{{ now_playSong()?.name || 'No song selected'}}</div>
+      <div class="song-artist">{{ now_playSong()?.artist }}</div>
     </div> 
+
+    <!-- <ng-template #noSongTemplate>
+      <div class="song-name" >{{ 'No song selected' }}</div>
+      <div class="song-artist">{{ '' }}</div>
+    </ng-template> -->
   
     <!-- Seekbar -->
     <input
@@ -20,7 +25,7 @@
       class="seekbar"
     />
     <div class="time-display">
-      {{ currentTime() | number: '2.0' }} / {{ duration() }} sec
+      {{ formattedTime() }} / {{ formattedDuration() }}
     </div>
    
     <!-- Controls -->

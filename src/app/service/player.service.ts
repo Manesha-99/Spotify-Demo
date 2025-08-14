@@ -12,6 +12,10 @@ export class PlayerService {
 
   private currentSongSource = new BehaviorSubject<SongPlay | null>(null);
   currentSong$ = this.currentSongSource.asObservable();
+  
+
+  private addQueueSongSource = new BehaviorSubject<SongPlay | null>(null);
+  queueSong$ = this.addQueueSongSource.asObservable();
 
 
   private queue: Song[] = [];
@@ -25,10 +29,19 @@ export class PlayerService {
           duration : song.duration
     }
     this.currentSongSource.next(songFromUser);
+    // this.addQueueSongSource.next(null);
+  
   }
 
   AddToQueue(song:Song){
-    this.queue.push(song);
+    const nextSong: SongPlay ={
+      id : song.id,
+      name : song.name,
+      artist : song.artist,
+      length : song.length,
+      duration : song.duration
+}
+    this.addQueueSongSource.next(nextSong);
   }
 
   getQueue() :Song[] {

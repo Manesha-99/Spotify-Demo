@@ -13,7 +13,7 @@ import { PlayerComponent } from "../player/player.component";
 
 @Component({
   selector: 'app-user-dashboard',
-  imports: [FormsModule, NgIf, NgFor, PlayListComponent, PlayerComponent],
+  imports: [FormsModule, NgIf, NgFor, PlayListComponent],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
@@ -49,6 +49,11 @@ export class UserDashboardComponent implements OnInit {
 
   playSongBtn(song:Song){
     this.playerService.SendSong(song);
+  }
+
+
+  addToQueueBtn(song:Song){
+    this.playerService.AddToQueue(song);
   }
 
   // songSelect(song:Song){

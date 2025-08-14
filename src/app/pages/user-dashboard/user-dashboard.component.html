@@ -4,9 +4,7 @@
 
 
 <app-play-list [songFromParent]="selectedSong"></app-play-list>
-<!-- <app-play-list ></app-play-list> -->
 
-<app-player></app-player>
 
 <!-- 🎤 Artist Section -->
 <section>
@@ -44,7 +42,7 @@
         <p><strong>Album:</strong> {{ song.album }}</p>
         <p><strong>Duration:</strong> {{song.length}}</p>
         <button id="play-btn" (click)="playSongBtn(song)">Play Song</button>
-        <button id="queue-btn">Add to Queue</button>
+        <button id="queue-btn" (click)="addToQueueBtn(song)">Add to Queue</button>
         <button id="playlist-btn" (click)="songSelect(song)">Add To Playlist</button>
       </div>
     </div>
