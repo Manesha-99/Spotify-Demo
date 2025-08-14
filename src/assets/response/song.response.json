@@ -1,5 +1,5 @@
 {
-  "songList":[
+  "songList": [
     {
       "id": 1,
       "name": "Yellow",
@@ -7,16 +7,20 @@
       "genre": "Alternative Rock",
       "album": "Parachutes",
       "coverImage": "",
-      "audioPath": ""
+      "audioPath": "",
+      "length": "4:29",
+      "duration": 269
     },
     {
-      "id": 5,
+      "id": 2,
       "name": "Lose Yourself",
       "artist": "Eminem",
       "genre": "Hip Hop",
       "album": "8 Mile",
       "coverImage": "",
-      "audioPath": ""
+      "audioPath": "",
+      "length": "5:26",
+      "duration": 326
     },
     {
       "id": 3,
@@ -25,7 +29,9 @@
       "genre": "Dream Pop",
       "album": "Cigarettes After Sex",
       "coverImage": "",
-      "audioPath": ""
+      "audioPath": "",
+      "length": "4:50",
+      "duration": 290
     },
     {
       "id": 4,
@@ -34,18 +40,20 @@
       "genre": "Pop",
       "album": "Divide",
       "coverImage": "",
-      "audioPath": ""
+      "audioPath": "",
+      "length": "3:53",
+      "duration": 233
     },
     {
-     
       "id": 5,
       "name": "Hips Don't Lie",
       "artist": "Shakira",
       "genre": "Pop",
       "album": "Oral Fixation Vol. 2",
       "coverImage": "",
-      "audioPath": ""
+      "audioPath": "",
+      "length": "3:38",
+      "duration": 218
     }
   ]
 }
-  

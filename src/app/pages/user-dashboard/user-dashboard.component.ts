@@ -8,15 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import { playListSong } from '../../models/playListSong.model';
 import { PlayListComponent } from '../play-list/play-list.component';
+import { PlayerService } from '../../service/player.service';
+import { PlayerComponent } from "../player/player.component";
 
 @Component({
   selector: 'app-user-dashboard',
-  imports: [FormsModule, NgIf, NgFor, PlayListComponent],
+  imports: [FormsModule, NgIf, NgFor, PlayListComponent, PlayerComponent],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
 export class UserDashboardComponent implements OnInit {
-  constructor(private auth: AuthService, private dataService: DataService) {}
+  constructor(private auth: AuthService, private dataService: DataService, private playerService: PlayerService) {}
 
   currentUser: any = null;
   artists: Artist[] = [];
@@ -42,6 +44,11 @@ export class UserDashboardComponent implements OnInit {
 
   songSelect(song:Song){
     this.selectedSong = song;
+    
+  }
+
+  playSongBtn(song:Song){
+    this.playerService.SendSong(song);
   }
 
   // songSelect(song:Song){

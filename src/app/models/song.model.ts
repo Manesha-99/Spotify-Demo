@@ -5,5 +5,7 @@ export interface Song{
     genre: string,
     album: string,
     coverImage: string,
-    audioPath: string
+    audioPath: string,
+    length: string,
+    duration: number;
 }

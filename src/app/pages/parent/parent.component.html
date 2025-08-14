@@ -1,7 +1,25 @@
-<p>parent works!</p>
+<!-- <p>parent works!</p> -->
 
 <app-child [message]="parentMessage" (cToP)="recieveMessage($event)" [number_c]="number" [dial_c]="dial" 
-(beenu)="recieveMessage2($event)"></app-child>
+(beenu)="recieveMessage2($event)" (c_count)="recieveCount($event)" (total)="recieveTotal($event)"></app-child>
 
-<h2>{{fromChild}}</h2>
+<!-- <h2>{{fromChild}}</h2>
 <h2>{{fromchild2}}</h2>
+<h2>{{from_child_count}}</h2>
+<h2>{{from_c_total}}</h2>
+<h2>discountedPrice: {{discountedPrice()}}</h2>
+<h2>{{tt()}}</h2> -->
+
+
+<!-- <ng-template *ngIf="marks>67; then pass; else fail;">
+</ng-template>
+
+
+<ng-template #pass>
+    <h1>Pass</h1>
+</ng-template>
+
+<ng-template #fail>
+    <h1>Not Pass</h1>
+</ng-template> -->
+

@@ -93,6 +93,23 @@ button:hover {
   margin-top: 8px;
   background-color: #43a047;
 }
+
+.card #play-btn{
+  background-color: rgba(175, 7, 7, 0.766);
+}
+
+.card #queue-btn{
+  background-color: #444;
+}
+
+.card #play-btn:hover{
+  background-color: rgba(241, 12, 12, 0.668);
+}
+
+.card #queue-btn:hover{
+  background-color: hsl(0, 5%, 8%);
+}
+
 .card button:hover {
   background-color: #2e7d32;
 }

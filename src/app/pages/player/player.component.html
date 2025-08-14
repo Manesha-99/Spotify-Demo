@@ -1,0 +1,36 @@
+<p>player works!</p>
+
+<h2 *ngIf="(now_playSong)">{{now_playSong.name}}</h2>
+
+
+<div class="player-container"> 
+    <!-- Song Info -->
+    <div class="song-info">
+      <div class="song-name" >{{ now_playSong?.name || 'No song selected' }}</div>
+      <div class="song-artist">{{ now_playSong?.artist || '' }}</div>
+    </div> 
+  
+    <!-- Seekbar -->
+    <input
+      type="range"
+      min="0"
+      [max]="duration()"
+      [(ngModel)]="currentTime"
+      (input)="seekTo($event)"
+      class="seekbar"
+    />
+    <div class="time-display">
+      {{ currentTime() | number: '2.0' }} / {{ duration() }} sec
+    </div>
+   
+    <!-- Controls -->
+    <div class="controls">
+      <button class="control-btn" (click)="previousSong()">⏮️</button>
+      <button class="control-btn" (click)="togglePlay()">
+        {{ isPlaying() ? '⏸️' : '▶️' }}
+      </button>
+      <button class="control-btn" (click)="nextSong()">⏭️</button>
+    </div>
+  </div>
+  
+  
