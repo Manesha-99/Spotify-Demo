@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-player',
-  imports: [NgIf, FormsModule],
+  imports: [FormsModule],
   templateUrl: './player.component.html',
   styleUrl: './player.component.css',
 })
@@ -57,6 +57,13 @@ export class PlayerComponent implements OnInit {
   isPlaying = signal(false);
   timer: any;
 
+  defaultOnPlay() {
+    clearInterval(this.timer);
+    this.isPlaying.set(false);
+    this.currentTime.set(0);
+    this.togglePlay();
+  }
+
   togglePlay() {
     this.isPlaying.update((p) => !p);
     if (this.isPlaying()) {
@@ -70,6 +77,8 @@ export class PlayerComponent implements OnInit {
     this.timer = setInterval(() => {
       if (this.currentTime() < this.duration()) {
         this.currentTime.update((v) => v + 1);
+      } else if (this.currentTime() == this.duration()) {
+        this.nextSong();
       } else {
         this.isPlaying.update((p) => !p);
         clearInterval(this.timer);
@@ -83,10 +92,7 @@ export class PlayerComponent implements OnInit {
 
   playSong(currentSong: SongPlay) {
     this.now_playSong.set(currentSong);
-    //this.songListQueue.set([]);
-
-    console.log(this.songListQueue().length);
-    //this.startTimer();
+    this.defaultOnPlay();
   }
 
   addToQueue(song: SongPlay) {
@@ -113,6 +119,7 @@ export class PlayerComponent implements OnInit {
 
     if (nextIndex < queue.length) {
       this.playSong(queue[nextIndex]);
+      this.defaultOnPlay();
     } else {
       alert(`All Songs have been played....`);
     }
