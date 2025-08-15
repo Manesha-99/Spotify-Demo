@@ -15,14 +15,15 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-player',
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './player.component.html',
   styleUrl: './player.component.css',
 })
 export class PlayerComponent implements OnInit {
   songListQueue = signal<SongPlay[]>([]);
   now_playSong = signal<SongPlay | null>(null);
-  //songFromUser!: SongPlay
+  showPlayer = signal(false);
+
 
   constructor(private playerService: PlayerService) {
     runInInjectionContext(inject(EnvironmentInjector), () => {
@@ -30,6 +31,7 @@ export class PlayerComponent implements OnInit {
         const song = this.now_playSong();
         console.log(song);
         if (song) {
+          this.showPlayer.set(true);
           this.duration.set(song.duration || 0);
           this.currentTime.set(0);
         }
@@ -122,6 +124,7 @@ export class PlayerComponent implements OnInit {
       this.defaultOnPlay();
     } else {
       alert(`All Songs have been played....`);
+      this.togglePlay();
     }
   }
 
@@ -157,4 +160,11 @@ export class PlayerComponent implements OnInit {
     const sec = total % 60;
     return `${min}.${sec.toString().padStart(2, '0')}`;
   });
+
+
+  closePlayer(){
+    this.showPlayer.set(false);
+    clearInterval(this.timer);
+    this.songListQueue.set([]);
+  }
 }

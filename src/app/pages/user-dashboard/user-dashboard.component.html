@@ -1,9 +1,9 @@
 <h2>Welcome {{currentUser.username}}</h2>
 <p>You can search and play music here.</p>
-<button (click)="logout()">Logout</button>
-
+<button id="logout" (click)="logout()">Logout</button>
 
 <app-play-list [songFromParent]="selectedSong"></app-play-list>
+
 
 
 <!-- 🎤 Artist Section -->

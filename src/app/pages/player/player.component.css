@@ -80,6 +80,23 @@
   }
   
   .control-btn:hover {
-    background: #ff6666;
+    background: #ff6262;
   }
   
+
+  /* Close Button */
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}

@@ -48,11 +48,5 @@ export class PlayerService {
       return this.queue;
   }
 
-  playNext(){
-    // const nextSong = this.queue.shift();
-    // if(nextSong){
-    //   this.playSong(nextSong);
-    // }
-  }
 
 }

@@ -24,6 +24,8 @@ body, :host {
 h2 + p + button + h2 {
     display: none; /* Hides the second <h2> before playlist, handled below */
   }
+
+  
   .playlist-box {
     position: absolute;
     top: 20px;
@@ -46,7 +48,7 @@ h2 + p + button + h2 {
   }
   .playlist-box li {
     padding: 5px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eeee;
     font-size: 14px;
   }
   .playlist-box button {

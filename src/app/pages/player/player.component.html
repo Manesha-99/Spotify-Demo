@@ -1,36 +1,39 @@
-<div class="player-container"> 
-    <!-- Song Info -->
-    <div class="song-info" >
-      <div class="song-name" >{{ now_playSong()?.name || 'No song selected'}}</div>
-      <div class="song-artist">{{ now_playSong()?.artist }}</div>
-    </div> 
+<div class="player-container" *ngIf="showPlayer()">
+  <!-- Song Info -->
+  <div class="song-info">
+    <div class="song-name">
+      {{ now_playSong()?.name || "No song selected" }}
+    </div>
+    <div class="song-artist">{{ now_playSong()?.artist }}</div>
+  </div>
 
-    <!-- <ng-template #noSongTemplate>
+  <!-- <ng-template #noSongTemplate>
       <div class="song-name" >{{ 'No song selected' }}</div>
       <div class="song-artist">{{ '' }}</div>
     </ng-template> -->
-  
-    <!-- Seekbar -->
-    <input
-      type="range"
-      min="0"
-      [max]="duration()"
-      [(ngModel)]="currentTime"
-      (input)="seekTo($event)"
-      class="seekbar"
-    />
-    <div class="time-display">
-      {{ formattedTime() }} / {{ formattedDuration() }}
-    </div>
-   
-    <!-- Controls -->
-    <div class="controls">
-      <button class="control-btn" (click)="previousSong()">⏮️</button>
-      <button class="control-btn" (click)="togglePlay()">
-        {{ isPlaying() ? '⏸️' : '▶️' }}
-      </button>
-      <button class="control-btn" (click)="nextSong()">⏭️</button>
-    </div>
+
+  <!-- Close button -->
+  <button class="close-btn" (click)="closePlayer()">✖</button>
+
+  <!-- Seekbar -->
+  <input
+    type="range"
+    min="0"
+    [max]="duration()"
+    [(ngModel)]="currentTime"
+    (input)="seekTo($event)"
+    class="seekbar"
+  />
+  <div class="time-display">
+    {{ formattedTime() }} / {{ formattedDuration() }}
   </div>
-  
-  
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" (click)="previousSong()">⏮️</button>
+    <button class="control-btn" (click)="togglePlay()">
+      {{ isPlaying() ? "⏸️" : "▶️" }}
+    </button>
+    <button class="control-btn" (click)="nextSong()">⏭️</button>
+  </div>
+</div>

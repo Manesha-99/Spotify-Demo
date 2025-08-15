@@ -6,7 +6,7 @@ import { ParentComponent } from './pages/parent/parent.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ParentComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
