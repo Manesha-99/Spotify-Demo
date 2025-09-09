@@ -7,6 +7,7 @@ import { Artist } from '../../models/artist.models';
 import { Song } from '../../models/song.model';
 import { Album } from '../../models/album.model';
 import { Router } from '@angular/router';
+import { AdminOperationsService } from '../../service/admin.operations.service';
 
 
 @Component({
@@ -17,13 +18,14 @@ import { Router } from '@angular/router';
 })
 export class AdminDashboardComponent {
 
-  constructor(private auth: AuthService, private dataService : DataService, private router:Router){
+  constructor(private auth: AuthService, private dataService : DataService, private router:Router, private adminOperations: AdminOperationsService){
 
   }
 
   artists: Artist[] = [];
   songs: Song[]=[];
   albums: Album[] = [];
+  newArtists : Artist[] = [];
 
   logout(){
     this.auth.logout();
@@ -32,7 +34,18 @@ export class AdminDashboardComponent {
   ngOnInit(): void {
     this.dataService.getSongs().subscribe(data=>this.songs=data.songList);
 
-    this.dataService.getArtists().subscribe(data=>this.artists=data);
+    this.dataService.getArtists().subscribe(data => {
+      this.artists = data;
+    
+      const stored = localStorage.getItem('artists');
+      if(stored){
+        const localartists: Artist[] = JSON.parse(stored);
+        this.artists = [...this.artists, ...localartists];
+        console.log(this.artists);
+      }
+
+    })
+    
     this.dataService.getAlbums().subscribe(data=>this.albums=data);
   }
 
@@ -58,7 +71,7 @@ export class AdminDashboardComponent {
   //-------Song Area-------
 
   goToAddSong(){
-
+    this.router.navigate(["./admin/add-song"]);
   }
 
 

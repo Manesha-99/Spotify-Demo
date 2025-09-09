@@ -1,65 +1,81 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { DataService } from '../../service/data.service';
-import { NgFor, NgIf } from '@angular/common';
 import { Artist } from '../../models/artist.models';
 import { Router } from '@angular/router';
-
-
-
+import { AdminOperationsService } from '../../service/admin.operations.service';
 
 @Component({
   selector: 'app-add-artist',
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './add-artist.component.html',
-  styleUrl: './add-artist.component.css'
+  styleUrl: './add-artist.component.css',
 })
 export class AddArtistComponent {
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private adminOperations: AdminOperationsService
+  ) {}
 
+  newAdminArtists: Artist[] = [];
 
-  artist: Artist = {
+  artistForm = new FormGroup({
+    name: new FormControl<string>(''),
+    id: new FormControl<number | null>(null),
+    bio: new FormControl<string>(''),
+    image: new FormControl<string>(''),
+  });
 
-    id: 0,
-    name : '',
-    bio : '',
-    image : '',
-
-
+  sendArtist() {
+    this.adminOperations.addNewArtist(this.newAdminArtists);
+    this.router.navigate(['/admin-dashboard']);
   }
 
-  constructor(private dataService: DataService, private router: Router) {}
-
-
-  onImageSelected(event: any) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-  
-    reader.onload = () => {
-      this.artist.image = reader.result as string;
-      // optional preview
-      // this.imagePreview = this.artist.image;
+  onSubmit() {
+    const artist: Artist = {
+      id: this.artistForm.value.id!,
+      name: this.artistForm.value.name!,
+      bio: this.artistForm.value.bio!,
+      image: '',
     };
+
+    const stored = localStorage.getItem('artists');
+    this.newAdminArtists =  stored? JSON.parse(stored): [];
+    const checkId = this.newAdminArtists.some(x=>x.id===artist.id);
+    if(checkId){
+      alert(`${artist.id} is already exists....`);
+    }else{
+      this.newAdminArtists.push(artist);
+
+      localStorage.setItem('artists', JSON.stringify(this.newAdminArtists));
   
-    if (file) {
-      reader.readAsDataURL(file);
+      alert(`New Artist Added to the List....`);
+    }
+
+    this.artistForm.reset();
+  }
+
+
+  clear() {
+    this.artistForm.reset({
+      id: null,
+      name: '',
+      bio: '',
+      image: null,
+    });
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.artistForm.get('image')?.setValue('');
     }
   }
-  
-//   addArtist() {
-//     this.dataService.addArtist({
-//        name: this.artist.name,
-//        bio: this.artist.bio,
-//        image: this.artist.image
-//      });
-     
-//      //Clear the Form
-
-//      this.artist = {
-//      id : 0,
-//      name :'',
-//      bio : '',
-//      image : ''
-//   }
-//   this.router.navigate(["./admin-dashboard"]);
-// }
 }

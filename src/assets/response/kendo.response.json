@@ -1,0 +1,140 @@
+{
+    "Products": [
+      {
+        "ProductID": 1,
+        "ProductName": "Chai",
+        "UnitPrice": 18,
+        "Category": {
+          "CategoryID": 1,
+          "CategoryName": "Beverages"
+        }
+      },
+      {
+        "ProductID": 2,
+        "ProductName": "Tea",
+        "UnitPrice": 20,
+        "Category": {
+          "CategoryID": 1,
+          "CategoryName": "Beverages"
+        }
+      },
+      {
+        "ProductID": 3,
+        "ProductName": "Coffee",
+        "UnitPrice": 25,
+        "Category": {
+          "CategoryID": 1,
+          "CategoryName": "Beverages"
+        }
+      },
+      {
+        "ProductID": 4,
+        "ProductName": "Bread",
+        "UnitPrice": 5,
+        "Category": {
+          "CategoryID": 2,
+          "CategoryName": "Bakery"
+        }
+      },
+      {
+        "ProductID": 5,
+        "ProductName": "Butter",
+        "UnitPrice": 10,
+        "Category": {
+          "CategoryID": 2,
+          "CategoryName": "Bakery"
+        }
+      },
+      {
+        "ProductID": 6,
+        "ProductName": "Apple",
+        "UnitPrice": 3,
+        "Category": {
+          "CategoryID": 3,
+          "CategoryName": "Fruits"
+        }
+      },
+      {
+        "ProductID": 7,
+        "ProductName": "Banana",
+        "UnitPrice": 2,
+        "Category": {
+          "CategoryID": 3,
+          "CategoryName": "Fruits"
+        }
+      },
+      {
+        "ProductID": 8,
+        "ProductName": "Orange",
+        "UnitPrice": 4,
+        "Category": {
+          "CategoryID": 3,
+          "CategoryName": "Fruits"
+        }
+      },
+      {
+        "ProductID": 9,
+        "ProductName": "Tomato",
+        "UnitPrice": 2.5,
+        "Category": {
+          "CategoryID": 4,
+          "CategoryName": "Vegetables"
+        }
+      },
+      {
+        "ProductID": 10,
+        "ProductName": "Potato",
+        "UnitPrice": 1.5,
+        "Category": {
+          "CategoryID": 4,
+          "CategoryName": "Vegetables"
+        }
+      },
+      {
+        "ProductID": 11,
+        "ProductName": "Carrot",
+        "UnitPrice": 2,
+        "Category": {
+          "CategoryID": 4,
+          "CategoryName": "Vegetables"
+        }
+      },
+      {
+        "ProductID": 12,
+        "ProductName": "Cheese",
+        "UnitPrice": 12,
+        "Category": {
+          "CategoryID": 2,
+          "CategoryName": "Bakery"
+        }
+      },
+      {
+        "ProductID": 13,
+        "ProductName": "Chicken",
+        "UnitPrice": 30,
+        "Category": {
+          "CategoryID": 5,
+          "CategoryName": "Meat"
+        }
+      },
+      {
+        "ProductID": 14,
+        "ProductName": "Beef",
+        "UnitPrice": 40,
+        "Category": {
+          "CategoryID": 5,
+          "CategoryName": "Meat"
+        }
+      },
+      {
+        "ProductID": 15,
+        "ProductName": "Fish",
+        "UnitPrice": 28,
+        "Category": {
+          "CategoryID": 5,
+          "CategoryName": "Meat"
+        }
+      }
+    ]
+  }
+  

@@ -12,26 +12,31 @@
 
 <h2 id="heading">Add Artist</h2>
 
-<form #userform="ngForm"  class="artist-form" >
-  <!-- (ngSubmit)="addArtist() -->
+<!-- <form #userform="ngForm"  class="artist-form" > -->
+<form class="artist-form" [formGroup]="artistForm">
+  <div class="form-group">
+    <label for="name">ID</label>
+    <input type="text" name="ID" formControlName="id" placeholder="Artist Name" id="name" >
+  </div>
+
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="name" [(ngModel)] ="artist.name" placeholder="Artist Name" id="name" >
+    <input type="text" name="name" formControlName="name" placeholder="Artist Name" id="name" >
   </div>
 
   <div class="form-group">
     <label for="bio">Bio</label>
-    <input type="text" placeholder="Bio" id="bio" name="bio" [(ngModel)]="artist.bio">
+    <input type="text" placeholder="Bio" formControlName="bio" id="bio" name="bio">
   </div>
 
   <div class="form-group">
     <label for="image">Image Upload</label>
-    <input type="file" id="image" name="image" (change)="onImageSelected($event)">
-
+    <input type="file" id="image" formControlName="image" name="image" #fileInput (change)="artistForm.get('image')">
   </div>
 
   <div class="button-group">
-    <button type="submit">Submit</button>
-    <button type="button">Clear</button>
+    <button id="submit" (click)="onSubmit()">Submit</button>
+    <button id="clear" (click)="clear()">Clear</button>
+    <button id="btn-back" (click)="sendArtist()">Back To Dashboard</button>
   </div>
 </form>

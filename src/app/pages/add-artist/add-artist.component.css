@@ -1,63 +1,77 @@
-#heading{
+#heading {
   text-align: center;
 }
 
-
 .artist-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  input[type="text"],
-  input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  button[type="button"] {
-    background-color: #6c757d;
-  }
-  
-  button[type="button"]:hover {
-    background-color: #5a6268;
-  }
-  
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+/* Common button styles */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+/* Subtle click effect */
+button:active {
+  transform: scale(0.97);
+}
+
+/* Button colors by ID */
+#submit {
+  background-color: #007bff; 
+}
+#submit:hover {
+  background-color: #0056b3;
+}
+
+#clear {
+  background-color: #dc3545; 
+}
+#clear:hover {
+  background-color: #a71d2a;
+}
+
+#btn-back {
+  background-color: #28a745; 
+}
+#btn-back:hover {
+  background-color: #218838;
+}

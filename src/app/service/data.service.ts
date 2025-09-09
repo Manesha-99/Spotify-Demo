@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Song } from '../models/song.model';
-import { Artist } from '../models/artist.models';
-import { Album } from '../models/album.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SongResponse } from '../models/song.response.model';
@@ -9,6 +6,7 @@ import { AlbumResponse } from '../models/album.response.model';
 import { ArtistResponse } from '../models/artist.response.model';
 import { playListSong } from '../models/playListSong.model';
 import { User } from '../models/user.model';
+import { KendoResponse} from '../models/kendo.response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -185,5 +183,10 @@ export class DataService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('assets/response/user.details.json');
+  }
+
+
+  getProducts(): Observable<KendoResponse>{
+    return this.http.get<KendoResponse>(`assets/response/kendo.response.json`);
   }
 }

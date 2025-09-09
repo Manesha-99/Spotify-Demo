@@ -1,1 +1,53 @@
-<p>add-song works!</p>
+<h2 id="heading">Add Song</h2>
+
+<form #songForm="ngForm" class="song-form">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" name="id" [formControl]="id" placeholder="Song ID" id="id">
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" [formControl]="name" placeholder="Song Name" id="name">
+  </div>
+
+  <div class="form-group">
+    <label for="artist">Artist</label>
+    <input type="text" name="artist" [formControl]="artist"  placeholder="Artist" id="artist">
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" [formControl]="genre" placeholder="Genre" id="genre">
+  </div>
+
+  <div class="form-group">
+    <label for="album">Album</label>
+    <input type="text" name="album" [formControl]="album"  placeholder="Album" id="album">
+  </div>
+
+  <div class="form-group">
+    <label for="coverImage">Cover Image</label>
+    <input type="file" id="coverImage" name="coverImage" >
+  </div>
+
+  <div class="form-group">
+    <label for="audioPath">Audio File</label>
+    <input type="file" id="audioPath" name="audioPath" >
+  </div>
+
+  <div class="form-group">
+    <label for="length">Length</label>
+    <input type="text" name="length"  placeholder="mm:ss" id="length">
+  </div>
+
+  <div class="form-group">
+    <label for="duration">Duration (seconds)</label>
+    <input type="number" name="duration"  placeholder="Duration in seconds" id="duration">
+  </div>
+
+  <div class="button-group">
+    <button type="submit" (click)="onSubmit()">Submit</button>
+    <button type="button">Clear</button>
+  </div>
+</form>
